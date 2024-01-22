@@ -1,18 +1,19 @@
 package Bai13.entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public abstract class Employee {
     protected String id;
     protected String fullName;
-    protected String birthday;
+    protected LocalDate birthday;
     protected String phone;
     protected String email;
 
     protected List<Certificate> certificates;
 
     public Employee(){}
-    public Employee(String id, String fullName, String birthday, String phone, List<Certificate> certificates){
+    public Employee(String id, String fullName, LocalDate birthday, String phone, List<Certificate> certificates){
         this.id = id;
         this.fullName = fullName;
         this.birthday = birthday;
@@ -37,11 +38,11 @@ public abstract class Employee {
         this.fullName = fullName;
     }
 
-    public String getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 

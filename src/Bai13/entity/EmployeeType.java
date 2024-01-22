@@ -1,9 +1,9 @@
 package Bai13.entity;
 
 public enum EmployeeType {
-    STUDENT(1),
-    TEACHER(2),
-    SUPPORTER(3);
+    EXPERIENCE(1),
+    FRESHER(2),
+    INTERN(3);
 
     private final int value;
 
@@ -23,5 +23,4 @@ public enum EmployeeType {
         }
         throw new IllegalArgumentException("Invalid SchoolType value: " + value);
     }
-
 }

@@ -53,7 +53,7 @@ public class Main {
                 case "3": {
                     System.out.print("Enter passport: ");
                     String passport = scanner.nextLine();
-                    System.out.println("Price: " + hotel.calculator(passport));
+//                    System.out.println("Price: " + hotel.calculator(passport));
                     break;
                 }
                 case "4": {

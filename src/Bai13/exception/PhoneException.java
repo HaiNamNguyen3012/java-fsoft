@@ -1,4 +1,7 @@
 package Bai13.exception;
 
-public class PhoneException {
+public class PhoneException extends Exception{
+    public PhoneException(String message){
+        super(message);
+    }
 }
