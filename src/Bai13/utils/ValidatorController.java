@@ -1,4 +1,4 @@
-package Bai13.controller;
+package Bai13.utils;
 
 import Bai13.exception.BirthdayException;
 import Bai13.exception.EmailException;
@@ -34,7 +34,7 @@ public class ValidatorController {
         String namePattern = "^[A-Za-z]+( [A-Za-z]+)?$";
 
         if (!name.matches(namePattern)) {
-            throw new FullNameException("Tên chưa đúng định dạng.");
+            throw new FullNameException("Invalid full name length.");
         }
     }
 }

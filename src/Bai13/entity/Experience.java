@@ -12,8 +12,11 @@ public class Experience extends Employee{
         this.expInYear = expInYear;
         this.proSkill = proSkill;
     }
-    public Experience(String id, String fullName, LocalDate birthday, String phone, List<Certificate> certificates, int expInYear, String proSkill){
-        super(id, fullName, birthday, phone, certificates);
+    public Experience(String id, String fullName, LocalDate birthday, String phone, String email){
+        super(id, fullName, birthday, phone, email);
+    }
+    public Experience(String id, String fullName, LocalDate birthday, String phone, String email, List<Certificate> certificates, int expInYear, String proSkill){
+        super(id, fullName, birthday, phone, email, certificates);
         this.expInYear = expInYear;
         this.proSkill = proSkill;
     }

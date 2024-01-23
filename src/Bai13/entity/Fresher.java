@@ -15,8 +15,8 @@ public class Fresher extends Employee{
         this.education = education;
     }
 
-    public Fresher(String id, String fullName, LocalDate birthday, String phone, List<Certificate> certificates, LocalDate graduationDate, String graduationRank, String education){
-        super(id, fullName, birthday, phone, certificates);
+    public Fresher(String id, String fullName, LocalDate birthday, String phone, String email, List<Certificate> certificates, LocalDate graduationDate, String graduationRank, String education){
+        super(id, fullName, birthday, phone, email, certificates);
         this.graduationDate = graduationDate;
         this.graduationRank = graduationRank;
         this.education = education;

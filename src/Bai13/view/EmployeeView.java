@@ -1,7 +1,7 @@
 package Bai13.view;
 
 import Bai13.controller.EmployeeController;
-import Bai13.controller.ValidatorController;
+import Bai13.utils.ValidatorController;
 import Bai13.entity.*;
 import Bai13.exception.BirthdayException;
 import Bai13.exception.EmailException;
@@ -10,6 +10,8 @@ import Bai13.exception.PhoneException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -20,6 +22,11 @@ public class EmployeeView {
         System.out.println("Enter a: To insert ");
         System.out.println("Enter b: To search ");
         System.out.println("Enter c: To exit:");
+    }
+    public void showMisson(){
+        System.out.println("Enter 1: To insert experience");
+        System.out.println("Enter 2: To insert fresher");
+        System.out.println("Enter 3: To insert intern");
     }
     public void insert(EmployeeType employeeType) {
         Employee employee = null;
@@ -46,7 +53,6 @@ public class EmployeeView {
         this.employeeController.insert(employee);
     }
     private Experience insertExperience() {
-        Experience experience = new Experience();
         Scanner scanner = ScannerFactory.getScanner();
         scanner.nextLine();
         System.out.print("Input ID: ");
@@ -61,6 +67,26 @@ public class EmployeeView {
         String phone = scanner.nextLine();
         System.out.print("Input Email: ");
         String email = scanner.nextLine();
+//        List<Certificate> certificates = new ArrayList<>();
+//        System.out.print("Nhập số lượng Certificates: ");
+//        int numberOfCertificates = scanner.nextInt();
+//        for (int i = 0; i < numberOfCertificates; i++) {
+//            System.out.println("Nhập thông tin cho Certificate #" + (i + 1));
+//            System.out.print("Tên Certificate: ");
+//            String certificateName = scanner.nextLine();
+//            System.out.print("Rank Certificate: ");
+//            String certificateRank = scanner.nextLine();
+//            System.out.print("Certificate date  with format (dd-mm-yyyy): ");
+//            String certificateDateString = scanner.nextLine();
+//            LocalDate certificateDate = LocalDate.parse(certificateDateString, formatter);
+//            Certificate certificate = new Certificate(String.valueOf(i+1),certificateName, certificateRank, certificateDate);
+//            certificates.add(certificate);
+//        }
+//        System.out.print("Input Exp year: ");
+//        int expYears = scanner.nextInt();
+//        System.out.print("Input pro skill: ");
+//        String proSkill = scanner.nextLine();
+        Experience experience = new Experience(id, name,birthday,phone, email);
         return experience;
     }
 
@@ -82,7 +108,7 @@ public class EmployeeView {
     }
 
     public void delete() {
-        System.out.print("Input ID to deleet: ");
+        System.out.print("Input ID to delete: ");
         String id = ScannerFactory.getScanner().nextLine();
         this.employeeController.deleteById(id);
     }
@@ -92,7 +118,7 @@ public class EmployeeView {
     }
 
     private void checkData(Employee employee) throws BirthdayException, PhoneException, EmailException, FullNameException {
-//        ValidatorController.birthdayCheck(employee.getBirthday());
+        ValidatorController.birthdayCheck(employee.getBirthday());
         ValidatorController.phoneCheck(employee.getPhone());
         ValidatorController.emailCheck(employee.getEmail());
         ValidatorController.nameCheck(employee.getFullName());

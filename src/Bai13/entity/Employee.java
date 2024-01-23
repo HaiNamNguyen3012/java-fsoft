@@ -13,11 +13,19 @@ public abstract class Employee {
     protected List<Certificate> certificates;
 
     public Employee(){}
-    public Employee(String id, String fullName, LocalDate birthday, String phone, List<Certificate> certificates){
+    public Employee(String id, String fullName, LocalDate birthday, String phone, String email){
         this.id = id;
         this.fullName = fullName;
         this.birthday = birthday;
         this.phone = phone;
+        this.email = email;
+    }
+    public Employee(String id, String fullName, LocalDate birthday, String phone, String email, List<Certificate> certificates){
+        this.id = id;
+        this.fullName = fullName;
+        this.birthday = birthday;
+        this.phone = phone;
+        this.email = email;
         this.certificates = certificates;
     }
     public abstract void showInformation();

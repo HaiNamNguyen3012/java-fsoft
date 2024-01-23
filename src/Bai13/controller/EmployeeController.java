@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class EmployeeController {
     private List<Employee> employees;
+    EmployeeView employeeView = new EmployeeView();
     public EmployeeController(){
         this.employees = new ArrayList<>();
     }
@@ -30,15 +31,15 @@ public class EmployeeController {
         return false;
     }
 
-    public List<Employee> findByType(int type) {
+    public List<Employee> findByType(EmployeeType employeeType) {
         return this.employees.stream()
                 .filter(employee -> {
-                    switch (type) {
-                        case 0:
+                    switch (employeeType) {
+                        case EXPERIENCE:
                             return employee instanceof Experience;
-                        case 1:
+                        case FRESHER:
                             return employee instanceof Fresher;
-                        case 2:
+                        case INTERN:
                             return employee instanceof Intern;
                         default:
                             return false;
@@ -51,23 +52,22 @@ public class EmployeeController {
     }
     public void run(){
         Scanner scanner = ScannerFactory.getScanner();
-        EmployeeView employeeView = new EmployeeView();
+
         String choice;
         while (true){
             employeeView.showButton();
             choice = scanner.nextLine();
-            switch (choice){
-                case "a": {
-                    System.out.println("Enter 1: To insert experience");
-                    System.out.println("Enter 2: To insert fresher");
-                    System.out.println("Enter 3: To insert intern");
+            MissonType selectedMisson = MissonType.getMissonTypeFromValue(choice);
+            switch (selectedMisson){
+                case INSERT: {
+                    employeeView.showMisson();
                     int type = scanner.nextInt();
                     employeeView.insert(EmployeeType.getEmployeeTypeFromValue(type));
                 }
-                case "b": {
+                case SEARCH: {
                     employeeView.showAllEmployee();
                 }
-                case "c":{
+                case EXIT:{
                     return;
                 }
                 default:
